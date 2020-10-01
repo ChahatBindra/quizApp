@@ -20,12 +20,26 @@ var _totalScore = 0;
 class _MyAppState extends State<MyApp> {
   @override
   void _pressed(int score) {
-//Rohan ke dost
+    _totalScore += score;
+    // print(_totalScore);
+
+    setState(() {
+      _questionIndex += 1;
+    });
+    print("Answer Chosen!");
+    print(_questionIndex);
+    if (_questionIndex < _questions.length) {
+      print("We have more questions");
+    } else {
+      print("No more questions");
     }
   }
 
   void _resetQuiz() {
-    // @Chahat insert here
+    setState(() {
+      _questionIndex = 0;
+      _totalScore = 0;
+    });
   }
 
   var _questionIndex = 0;
